@@ -1,12 +1,12 @@
 FROM python:3.8
 
-COPY ./requirements.txt /webapp/requirements.txt
-
 WORKDIR /webapp
+
+COPY ./requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY webapp/* /webapp
+COPY webapp/* .
 
 ENTRYPOINT [ "python" ]
 CMD ["app.py"]
